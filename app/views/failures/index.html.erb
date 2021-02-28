@@ -1,0 +1,9 @@
+<%= link_to 'download as CSV', failures_path(format: :csv) %>
+
+<% @failures.each do |failure| %>
+  <h1><%= failure.test_name %></h1>
+  <h2><%= failure.test_file %>:<%= failure.line_number %></h2>
+  <p>
+    <%= simple_format(failure.failure) %>
+  </p>
+<% end %>
