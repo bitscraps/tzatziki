@@ -1,9 +1,26 @@
 <%= link_to 'download as CSV', failures_path(format: :csv) %>
 
-<% @failures.each do |failure| %>
-  <h1><%= failure.test_name %></h1>
-  <h2><%= failure.test_file %>:<%= failure.line_number %></h2>
-  <p>
-    <%= simple_format(failure.failure) %>
-  </p>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <td>Project</td>
+      <td>Build #</td>
+      <td>Branch</td>
+      <td>Job</td>
+      <td>Test</td>
+      <td>File</td>
+    </tr>tr>
+  </thead>
+  <tbody>
+    <% @failures.each do |failure| %>
+      <tr>
+        <td><%= failure.repo_name %></td>
+        <td><%= failure.build_number %></td>
+        <td><%= failure.branch %></td>
+        <td><%= failure.circle_job %></td>
+        <td><%= failure.test_name %></td>
+        <td><%= failure.test_file %>:<%= failure.line_number %></td>
+      </tr>tr>
+    <% end %>
+  </tbody>
+</table>
