@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: tzatziki_production
-  username: tzatziki
-  password: <%= ENV['TZATZIKI_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
