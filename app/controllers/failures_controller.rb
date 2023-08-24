@@ -1,6 +1,8 @@
 class FailuresController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  http_basic_authenticate_with name: ENV.fetch('HTTP_USERNAME'), password: ENV.fetch('HTTP_PASSWORD'), only: :index
+
   def create
     failure = Failure.new(failure_params)
   
