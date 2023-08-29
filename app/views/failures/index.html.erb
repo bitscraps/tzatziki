@@ -1,25 +1,21 @@
-<%= link_to 'download as CSV', failures_path(format: :csv) %>
+<!-- <%= link_to 'download as CSV', failures_path(format: :csv) %> -->
 
-<table>
+<table class='failures-table'>
   <thead>
     <tr>
       <td>Project</td>
       <td>Build #</td>
       <td>Branch</td>
-      <td>Job</td>
-      <td>Test</td>
-      <td>File</td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
     <% @failures.each do |failure| %>
       <tr>
         <td><%= failure.repo_name %></td>
-        <td><%= failure.build_number %></td>
+        <td><%= link_to failure.build_number, failure_path(failure.build_number) %></td>
         <td><%= failure.branch %></td>
-        <td><%= failure.circle_job %></td>
-        <td><%= failure.test_name.truncate(50) %></td>
-        <td><%= failure.test_file %>:<%= failure.line_number %></td>
+        <td><%= pluralize(failure.total_count, 'failure') %></td>
       </tr>
     <% end %>
   </tbody>

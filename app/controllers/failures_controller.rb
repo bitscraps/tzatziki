@@ -14,12 +14,17 @@ class FailuresController < ApplicationController
   end
 
   def index
-    @failures = Failure.all
+    @failures_csv = Failure.all
+    @failures = Failure.select(:repo_name, :build_number, :branch).distinct(:branch).group(:branch, :build_number, :repo_name)
 
     respond_to do |format|
       format.html
-      format.csv { send_data @failures.to_csv, filename: "failures-#{Date.today}.csv" }
+      format.csv { send_data @failures_csv.to_csv, filename: "failures-#{Date.today}.csv" }
     end
+  end
+
+  def show
+    @failures = Failure.where(build_number: params[:id])
   end
 
   private

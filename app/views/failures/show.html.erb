@@ -1,0 +1,43 @@
+<main>
+	<div class='failure-overview-details'>
+		<div>
+		<strong>REPO</strong><br>
+		<%= @failures.first.repo_name %>
+		</div>
+		<div>
+		<strong>BUILD</strong><br>
+		<%= @failures.first.build_number %>
+		</div>
+		<div>
+		<strong>BRANCH</strong><br>
+		<%= @failures.first.branch %>
+		</div>
+		
+	</div>
+<% @failures.each do |failure| %>
+	<section class="failure">
+		<div class="failure-location">
+			<div class="location">
+				<%= failure.test_file %>:<%= failure.line_number %>
+			</div>
+			<div class="job">
+				<%= failure.circle_job %>
+			</div>
+		</div>
+		<div class="failure-msg">
+			<% if failure.other_instances %>
+				<div class="intermittent">
+					<div class="header">
+						This failure is likely intermittent
+					</div>
+					<div class="body">
+						It has been seen <%= pluralize(failure.other_instances, 'time') %> in the last 30 days
+					</div>
+				</div>
+			<% end %>
+			<strong><%= failure.test_name %></strong><br><br>
+			<%= failure.failure %>
+		</div>
+	</section>
+<% end %>
+</main>

@@ -1,9 +1,88 @@
 html, body {
   font-family: 'Source Code Pro', monospace;
+  background-color: #ECECEC;
+  align:center;
 }
 
 table {
   thead {
     font-weight: 700;
+  background-color: #EFEFEF;
   }
+}
+
+table.failures-table {
+  max-width:920px;
+  width:100%;
+  box-shadow: 2px 2px 2px 2px #ccc;
+  background-color:#FFF;
+  border-radius:4px;
+  margin:auto;
+  margin-top:30px;
+}
+
+table.failures-table th td {
+}
+
+table.failures-table td {
+  padding:8px 16px;
+}
+
+main {
+  width:100%;
+  max-width: 920px;
+  margin:auto;
+}
+
+.failure-overview-details {
+  display:flex;
+  flex-grow: 3;
+  padding:8px 16px;
+}
+
+.failure-overview-details div {
+  margin-right:150px;
+}
+
+.failure {
+  width:100%;
+  background-color: #FFF;
+
+  box-shadow: 2px 2px 2px 2px #ccc;
+  border-radius:4px;
+  margin-top:30px;
+
+  .failure-msg {
+    padding:16px;
+  }
+
+  .failure-location {
+  display:flex;
+  justify-content:space-between;
+    padding:8px 16px;
+    background-color: #E4E4E4;
+    position:relative;
+  }
+
+  .failure-job {
+    right:0;
+  }
+
+  .intermittent {
+    background-color: yellow;
+    border:3px SOLID #fcb603;
+    border-radius:4px;
+    margin-bottom: 16px;
+
+    .header {
+    padding:4px 8px;
+      background-color: #fcb603
+    }
+
+    .body {
+      padding:4px 8px;
+      background-color: #ffde8c
+    }
+  }
+
 }
