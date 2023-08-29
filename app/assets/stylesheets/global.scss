@@ -4,6 +4,10 @@ html, body {
   align:center;
 }
 
+a {
+  color: #333;
+}
+
 table {
   thead {
     font-weight: 700;
@@ -32,6 +36,13 @@ main {
   width:100%;
   max-width: 920px;
   margin:auto;
+  padding-bottom:100px;
+}
+
+.back-button{
+  font-size: 2em !important;
+  text-decoration:none !important;
+  color: #888 !important;
 }
 
 .failure-overview-details {
@@ -84,5 +95,7 @@ main {
       background-color: #ffde8c
     }
   }
+
+
 
 }

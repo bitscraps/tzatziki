@@ -1,6 +1,9 @@
 <main>
 	<div class='failure-overview-details'>
 		<div>
+			<%= link_to '<', failures_path, class: "back-button" %>
+		</div>
+		<div>
 		<strong>REPO</strong><br>
 		<%= @failures.first.repo_name %>
 		</div>
@@ -25,10 +28,10 @@
 			</div>
 		</div>
 		<div class="failure-msg">
-			<% if failure.other_instances %>
+			<% if failure.other_instances > 0 %>
 				<div class="intermittent">
 					<div class="header">
-						This failure is likely intermittent
+						This failure could be intermittent
 					</div>
 					<div class="body">
 						It has been seen <%= pluralize(failure.other_instances, 'time') %> in the last 30 days
