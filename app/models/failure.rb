@@ -10,6 +10,10 @@ class Failure < ApplicationRecord
     Failure.where.not(branch: branch).where(test_file: test_file, test_name: test_name, created_at: 30.days.ago...).count
   end
 
+  def first_created
+    Failure.where(repo_name: repo_name, build_number: build_number, branch: branch).order(created_at: :desc).limit(1).first.created_at
+  end
+
   def self.to_csv
     attributes = %w{repo_name build_number branch username circle_job test_name test_file line_number failure}
 

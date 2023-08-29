@@ -15,7 +15,7 @@ class FailuresController < ApplicationController
 
   def index
     @failures_csv = Failure.all
-    @failures = Failure.select(:repo_name, :build_number, :branch).distinct(:branch).group(:branch, :build_number, :repo_name)
+    @failures = Failure.select(:repo_name, :build_number, :branch).distinct(:branch).group(:branch, :build_number, :repo_name).order(created_at: :desc)
 
     respond_to do |format|
       format.html
