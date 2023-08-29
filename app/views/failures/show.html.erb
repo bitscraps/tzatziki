@@ -1,7 +1,7 @@
 <main>
 	<div class='failure-overview-details'>
-		<div>
-			<%= link_to '<', failures_path, class: "back-button" %>
+		<div class="back-button">
+			<%= link_to '<', failures_path %>
 		</div>
 		<div>
 		<strong>REPO</strong><br>
@@ -9,7 +9,7 @@
 		</div>
 		<div>
 		<strong>BUILD</strong><br>
-		<%= @failures.first.build_number %>
+		<%= link_to @failures.first.build_number, "https://github.com/eola/#{@failures.first.repo_name}/actions/runs/#{@failures.first.build_number}" %>
 		</div>
 		<div>
 		<strong>BRANCH</strong><br>
