@@ -9,7 +9,7 @@
 		</div>
 		<div>
 		<strong>BUILD</strong><br>
-		<%= link_to @failures.first.build_number, "https://github.com/#{@failures.first.repo_name}/actions/runs/#{@failures.first.build_number}" %>
+		<%= link_to @failures.first.build_number, "https://github.com/#{@failures.first.repo_name}/actions/runs/#{@failures.first.build_number}", target: :blank %>
 		</div>
 		<div>
 		<strong>BRANCH</strong><br>
