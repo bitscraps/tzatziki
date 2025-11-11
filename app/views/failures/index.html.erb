@@ -1,5 +1,11 @@
 <!-- <%= link_to 'download as CSV', failures_path(format: :csv) %> -->
 
+<div class="pagination-info">
+  <%= page_entries_info @failures %>
+</div>
+
+<%= paginate @failures %>
+
 <table class='failures-table'>
   <thead>
     <tr>
@@ -22,3 +28,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @failures %>

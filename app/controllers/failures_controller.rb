@@ -19,6 +19,8 @@ class FailuresController < ApplicationController
                   .distinct(:branch)
                   .group(:branch, :build_number, :repo_name)
                   .order("MIN(created_at) DESC")
+                  .page(params[:page])
+                  .per(100)
 
     respond_to do |format|
       format.html
