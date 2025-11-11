@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_28_205748) do
-
+ActiveRecord::Schema[7.0].define(version: 2025_11_11_114159) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,8 +19,8 @@ ActiveRecord::Schema.define(version: 2021_02_28_205748) do
     t.string "test_name"
     t.integer "line_number"
     t.text "failure"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "repo_name"
     t.string "build_number"
     t.string "branch"
